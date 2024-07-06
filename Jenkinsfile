@@ -12,6 +12,14 @@ pipeline {
             }
         }
 
+        stage('Set up environment') {
+            steps {
+                configFileProvider([configFile(fileId: '.env', targetLocation: '.env')]) {
+                    sh 'cat .env'  // This is just to verify the file content, you can remove it in production
+                }
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
