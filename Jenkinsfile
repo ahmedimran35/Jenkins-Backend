@@ -14,7 +14,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci'
+                sh 'npm install'
             }
         }
 
@@ -26,6 +26,9 @@ pipeline {
     }
 
     post {
+        always {
+            echo 'Pipeline completed.'
+        }
         success {
             echo 'Build successful!'
         }
