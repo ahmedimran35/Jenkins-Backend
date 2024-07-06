@@ -26,5 +26,6 @@ pipeline {
                 sh 'npm run build'
             }
         }
+        // Add additional stages as needed
     }
 }
