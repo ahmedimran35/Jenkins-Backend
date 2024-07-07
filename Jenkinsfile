@@ -5,6 +5,10 @@ pipeline {
         ENV_FILE = credentials('001')
     }
     
+    triggers {
+        githubPush()
+    }
+    
     stages {
         stage('Checkout') {
             steps {
