@@ -28,4 +28,10 @@ pipeline {
         }
         // Add additional stages as needed
     }
+    
+    post {
+        success {
+            cleanWs()
+        }
+    }
 }
