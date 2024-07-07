@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        ENV_FILE = credentials('.env')
+        ENV_FILE = credentials('001')
     }
     
     stages {
