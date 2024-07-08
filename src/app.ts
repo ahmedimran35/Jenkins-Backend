@@ -43,7 +43,7 @@ app.use("/api/v1", ApplicationRoute);
 app.get("/", (req: Request, res: Response) => {
   res.status(StatusCodes.OK).send({
     StatusCodes: 404,
-    message: "Wrong Path, Try Agian later. I just add contabo."
+    message: "Wrong Path, Try Agian later.This is a Final Test"
   });
 });
 
