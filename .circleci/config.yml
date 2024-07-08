@@ -1,0 +1,30 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.2
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/node:18.0
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Create .env file
+          command: |
+            echo "ENV_VAR1=$ENV_VAR1" >> .env
+            echo "ENV_VAR2=$ENV_VAR2" >> .env
+      - run:
+          name: Build project
+          command: npm run build
+      - run:
+          name: Run tests
+          command: npm test
+
+workflows:
+  version: 2
+  build-test:
+    jobs:
+      - build-and-test
